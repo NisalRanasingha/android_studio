@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MyHomePage(),
+      home: MyHome(),
     );
   }
 }
@@ -67,6 +67,33 @@ class MyHomePage extends StatelessWidget {
             child: Text("C"),
           ),
         ]),
+      ),
+    );
+  }
+}
+
+class MyHome extends StatelessWidget {
+  @override
+  Widget build(Object context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Row Column"),
+      ),
+      body: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              children: [Text("Text1"), Text("Head1")],
+            ),
+            Column(
+              children: [Text("Text1")],
+            ),
+            Column(
+              children: [Text("Text1")],
+            )
+          ],
+        ),
       ),
     );
   }
