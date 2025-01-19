@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test02/screens/home_page.dart';
+import 'package:test02/screens/secound_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +13,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: MyWidget(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: MyWidget(),
+        routes: <String, WidgetBuilder>{
+          '/second': (context) => SecoundScreen(),
+        });
   }
 }
 
@@ -99,49 +103,6 @@ class MyHome extends StatelessWidget {
   }
 }
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
-
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  int count = 0;
-  void increment() {
-    setState(() {
-      count = count + 1;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Tutorial 10"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "You have pushed button times",
-              style: TextStyle(fontSize: 25.0),
-            ),
-            Text(
-              count.toString(),
-              style: TextStyle(fontSize: 20.0),
-            )
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: increment,
-      ),
-    );
-  }
-}
 // class MyHouse extends StatelessWidget {
 //   int count = 0;
 
